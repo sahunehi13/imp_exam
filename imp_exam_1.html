@@ -1,0 +1,753 @@
+//IMP CODES FROM ANSHIKA 
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="sayHello()">Click Me</button>
+
+<script>
+function sayHello() {
+  alert("Hello! You clicked the button.");
+}
+</script>
+
+</body>
+</html>
+
+
+//
+<button id="btn">Click Me</button>
+
+<script>
+let button = document.getElementById("btn");
+
+button.onclick = function() {
+    alert("Button clicked using DOM property!");
+}
+</script>
+
+//.addEventListener
+
+<button id="btn">Click Me</button>
+
+<script>
+let button = document.getElementById("btn");
+
+button.addEventListener("click", function() {
+    alert("Button clicked using addEventListener!");
+});
+</script>
+
+//p.style.color
+<p id="text">Hover over me!</p>
+
+<script>
+let p = document.getElementById("text");
+
+p.addEventListener("mouseover", function() {
+    p.style.color = "red";
+});
+
+p.addEventListener("mouseout", function() {
+    p.style.color = "black";
+});
+</script>
+
+//canvas , ctx.fillStyle ,ctx.strokeStyle,
+<canvas id="myCanvas" width="300" height="200" style="border:1px solid black;"></canvas>
+<button id="drawBtn">Draw Circle</button>
+
+<script>
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+let btn = document.getElementById("drawBtn");
+
+btn.addEventListener("click", function() {
+    let x = Math.random() * 300;
+    let y = Math.random() * 200;
+    ctx.beginPath();
+    ctx.arc(x, y, 20, 0, 2 * Math.PI);
+    ctx.fillStyle = "green";
+    ctx.fill();
+});
+</script>
+
+<canvas id="myCanvas" width="300" height="200"></canvas>
+
+<script>
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+
+ctx.strokeStyle = "red";
+ctx.strokeRect(30,30,120,70);
+</script>
+
+//draw mutiple shape 
+<canvas id="myCanvas" width="400" height="300"></canvas>
+
+<script>
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+
+// rectangle
+ctx.fillStyle="blue";
+ctx.fillRect(20,20,100,60);
+
+// circle
+ctx.beginPath();
+ctx.arc(200,80,40,0,2*Math.PI);
+ctx.fillStyle="red";
+ctx.fill();
+
+// line
+ctx.beginPath();
+ctx.moveTo(50,200);
+ctx.lineTo(300,200);
+ctx.stroke();
+</script>
+
+//
+<html>
+<body>
+<script>
+let userName = prompt("Please enter your name:");
+alert("Your name is: " + userName);
+</script>
+</body>
+</html>
+
+//Display Input Text (Keyboard Event)
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="box">
+<p id="result"></p>
+
+<script>
+
+let box=document.getElementById("box");
+
+box.addEventListener("keyup",function(){
+
+document.getElementById("result").innerHTML=
+"You typed: "+box.value;
+
+});
+
+</script>
+
+</body>
+</html>
+
+//Draw Circle Where Mouse Clicks (Very Common Exam Question)
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="300" style="border:1px solid black"></canvas>
+
+<script>
+
+let canvas=document.getElementById("canvas");
+let ctx=canvas.getContext("2d");
+
+canvas.addEventListener("click",function(event){
+
+let x=event.offsetX;
+let y=event.offsetY;
+
+ctx.beginPath();
+ctx.arc(x,y,20,0,2*Math.PI);
+ctx.fill();
+
+});
+
+</script>
+
+</body>
+</html>
+
+//imp concept of form 
+<!DOCTYPE html>
+<html>
+<body>
+
+<form id="myForm">
+
+Name:
+<input type="text" id="name">
+<br><br>
+
+Password:
+<input type="password" id="pass">
+<br><br>
+
+Gender:
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+<br><br>
+
+Skills:
+<input type="checkbox" value="HTML"> HTML
+<input type="checkbox" value="CSS"> CSS
+<input type="checkbox" value="JS"> JavaScript
+<br><br>
+
+Course:
+
+<select id="course">
+<option>AI</option>
+<option>Web Dev</option>
+<option>Data Science</option>
+</select>
+
+<br><br>
+
+Comments:
+
+<br>
+
+<textarea id="msg"></textarea>
+
+<br><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="output"></p>
+
+<script>
+
+let form=document.getElementById("myForm");
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let course=document.getElementById("course").value;
+let msg=document.getElementById("msg").value;
+
+document.getElementById("output").innerHTML=
+"Name: "+name+"<br>Course: "+course+"<br>Message: "+msg;
+
+});
+
+</script>
+
+</body>
+</html>
+
+//
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Online Quiz</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:20px;
+}
+
+.quiz-box{
+background:white;
+padding:20px;
+width:420px;
+border-radius:8px;
+box-shadow:0px 0px 10px gray;
+}
+
+.error{
+color:red;
+}
+
+.result{
+margin-top:10px;
+font-weight:bold;
+}
+
+button{
+padding:8px 15px;
+background:blue;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+<h2>Online Quiz</h2>
+
+<form id="quizForm">
+
+<!-- Question 1 -->
+
+<p>1. Which language is used for web structure?</p>
+
+<input type="radio" name="q1" value="HTML"> HTML<br>
+<input type="radio" name="q1" value="CSS"> CSS<br>
+<input type="radio" name="q1" value="Python"> Python<br>
+
+<br>
+
+<!-- Question 2 -->
+
+<p>2. Which language is used for styling?</p>
+
+<input type="radio" name="q2" value="Java"> Java<br>
+<input type="radio" name="q2" value="CSS"> CSS<br>
+<input type="radio" name="q2" value="C++"> C++<br>
+
+<br>
+
+<!-- Question 3 -->
+
+<p>3. Which language adds interactivity?</p>
+
+<input type="radio" name="q3" value="HTML"> HTML<br>
+<input type="radio" name="q3" value="JavaScript"> JavaScript<br>
+<input type="radio" name="q3" value="SQL"> SQL<br>
+
+<br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="error" class="error"></p>
+
+<p id="result" class="result"></p>
+
+</div>
+
+<script>
+
+let form = document.getElementById("quizForm");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let error = document.getElementById("error");
+let result = document.getElementById("result");
+
+error.innerHTML="";
+result.innerHTML="";
+
+
+// ---- getElementsByName() used ----
+
+let q1Options = document.getElementsByName("q1");
+let q2Options = document.getElementsByName("q2");
+let q3Options = document.getElementsByName("q3");
+
+let q1Answer=null;
+let q2Answer=null;
+let q3Answer=null;
+
+
+// loop to check selected radio
+
+for(let i=0;i<q1Options.length;i++)
+{
+if(q1Options[i].checked)
+q1Answer=q1Options[i].value;
+}
+
+for(let i=0;i<q2Options.length;i++)
+{
+if(q2Options[i].checked)
+q2Answer=q2Options[i].value;
+}
+
+for(let i=0;i<q3Options.length;i++)
+{
+if(q3Options[i].checked)
+q3Answer=q3Options[i].value;
+}
+
+
+// ---- querySelector used ----
+
+let q1Selected=document.querySelector('input[name="q1"]:checked');
+let q2Selected=document.querySelector('input[name="q2"]:checked');
+let q3Selected=document.querySelector('input[name="q3"]:checked');
+
+
+// validation
+
+if(!q1Selected || !q2Selected || !q3Selected)
+{
+error.innerHTML="Please answer all questions!";
+return;
+}
+
+
+// calculate score
+
+let score=0;
+
+if(q1Answer=="HTML") score++;
+if(q2Answer=="CSS") score++;
+if(q3Answer=="JavaScript") score++;
+
+
+// display answers and score
+
+result.innerHTML=
+"Selected Answers:<br>"+
+"Q1: "+q1Answer+"<br>"+
+"Q2: "+q2Answer+"<br>"+
+"Q3: "+q3Answer+"<br><br>"+
+"Final Score: "+score+" / 3";
+
+});
+
+</script>
+
+</body>
+</html>
+
+
+//svg
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg width="300" height="200" style="border:1px solid black">
+<rect x="50" y="50" width="120" height="80" fill="red"/>
+<circle cx="150" cy="100" r="40" fill="blue"/>
+<ellipse cx="150" cy="100" rx="80" ry="40" fill="green"/>
+<line x1="10" y1="10" x2="200" y2="100" stroke="black" stroke-width="3"/>
+<polygon points="100,20 40,180 190,180" fill="orange"/>
+
+
+</svg>
+
+</body>
+</html>
+
+//animation 
+<svg width="300" height="200">
+
+<circle cx="50" cy="100" r="30" fill="blue">
+
+<animate
+attributeName="cx"
+from="50"
+to="250"
+dur="3s"
+repeatCount="indefinite"
+/>
+
+</circle>
+
+</svg>
+
+//Basic Canvas Animation (Moving Ball)
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="300" style="border:2px solid black"></canvas>
+
+<script>
+
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+let x = 50;
+let y = 100;
+
+function draw(){
+
+ctx.clearRect(0,0,400,300);
+
+ctx.beginPath();
+ctx.arc(x,y,20,0,Math.PI*2);
+ctx.fill();
+
+x = x + 2;
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+</script>
+
+</body>
+</html>
+
+//Bouncing Ball Inside Canvas (IMPORTANT)
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="300" style="border:2px solid black"></canvas>
+
+<script>
+
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+let x = 100;
+let y = 100;
+
+let dx = 3;
+let dy = 3;
+
+let radius = 20;
+
+function animate(){
+
+ctx.clearRect(0,0,400,300);
+
+ctx.beginPath();
+ctx.arc(x,y,radius,0,Math.PI*2);
+ctx.fillStyle="blue";
+ctx.fill();
+
+x += dx;
+y += dy;
+
+if(x + radius > canvas.width || x - radius < 0)
+dx = -dx;
+
+if(y + radius > canvas.height || y - radius < 0)
+dy = -dy;
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
+
+//Multiple Bouncing Balls
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="300" style="border:2px solid black"></canvas>
+
+<script>
+
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
+let balls=[];
+
+for(let i=0;i<5;i++){
+balls.push({
+x:Math.random()*400,
+y:Math.random()*300,
+dx:2,
+dy:2,
+r:15
+});
+}
+
+function animate(){
+
+ctx.clearRect(0,0,400,300);
+
+for(let b of balls){
+
+ctx.beginPath();
+ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+ctx.fill();
+
+b.x+=b.dx;
+b.y+=b.dy;
+
+if(b.x+b.r>canvas.width || b.x-b.r<0)
+b.dx=-b.dx;
+
+if(b.y+b.r>canvas.height || b.y-b.r<0)
+b.dy=-b.dy;
+
+}
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
+
+//Ball Follows Mouse
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="300" style="border:2px solid black"></canvas>
+
+<script>
+
+let canvas=document.getElementById("canvas");
+let ctx=canvas.getContext("2d");
+
+let x=200;
+let y=150;
+
+canvas.addEventListener("mousemove",function(e){
+
+x=e.offsetX;
+y=e.offsetY;
+
+});
+
+function draw(){
+
+ctx.clearRect(0,0,400,300);
+
+ctx.beginPath();
+ctx.arc(x,y,20,0,Math.PI*2);
+ctx.fill();
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+</script>
+
+</body>
+</html>
+
+//Gravity Ball Animation
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="400" height="300" style="border:2px solid black"></canvas>
+
+<script>
+
+let canvas=document.getElementById("canvas");
+let ctx=canvas.getContext("2d");
+
+let x=200;
+let y=50;
+
+let dy=2;
+
+function animate(){
+
+ctx.clearRect(0,0,400,300);
+
+ctx.beginPath();
+ctx.arc(x,y,20,0,Math.PI*2);
+ctx.fill();
+
+y+=dy;
+
+if(y+20>canvas.height){
+dy=-dy*0.9;
+}
+
+dy+=0.2;
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
+
+//Canvas Animation – Moving Ball
+<canvas id="c" width="400" height="300" style="border:2px solid black"></canvas>
+
+<script>
+
+let canvas=document.getElementById("c");
+let ctx=canvas.getContext("2d");
+
+let x=50;
+
+function animate(){
+
+ctx.clearRect(0,0,400,300);
+
+ctx.beginPath();
+ctx.arc(x,150,20,0,Math.PI*2);
+ctx.fill();
+
+x+=2;
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+//canva bounce toching 
+<canvas id="c" width="400" height="300" style="border:2px solid black"></canvas>
+
+<script>
+
+let canvas=document.getElementById("c");
+let ctx=canvas.getContext("2d");
+
+let x=100;
+let y=100;
+
+let dx=3;
+let dy=3;
+
+let r=20;
+
+function animate(){
+
+ctx.clearRect(0,0,400,300);
+
+ctx.beginPath();
+ctx.arc(x,y,r,0,Math.PI*2);
+ctx.fill();
+
+x+=dx;
+y+=dy;
+
+if(x+r>canvas.width || x-r<0)
+dx=-dx;
+
+if(y+r>canvas.height || y-r<0)
+dy=-dy;
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
