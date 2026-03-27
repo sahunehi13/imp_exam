@@ -1,4 +1,114 @@
 //CSS
+
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar */
+nav {
+  background-color: #333;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav a:hover {
+  color: #ff9800;
+}
+
+/* Container */
+.container {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Headings */
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Input fields */
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Card style */
+.card {
+  background: white;
+  padding: 20px;
+  margin: 10px auto;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+//app.js
 import "./App.css";
 
 function App() {
@@ -29,8 +139,80 @@ function App() {
 
 export default App;
 
+//code for react 
+
+function App() {
+  return <h1>Hello World</h1>;
+}
+export default App;
 
 
+function App() {
+  const hello = (name) => "Hello " + name;
+  return <h1>{hello("Nehi")}</h1>;
+}
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const myArray = ['apple', 'banana', 'orange'];
+
+const myList = myArray.map((item) => <p key={item}>{item}</p>);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(myList);
+
+
+
+
+function App() {
+  const myArray = ['apple', 'banana', 'orange'];
+
+  return (
+    <div>
+      {myArray.map((item) => (
+        <p key={item}>{item}</p>
+      ))}
+    </div>
+  );
+}
+export default App;
+
+function App() {
+  const myArray = ['apple', 'banana', 'orange'];
+
+  return (
+    <div>
+      {myArray.map((item) => (
+        <p key={item}>{item}</p>
+      ))}
+    </div>
+  );
+}
+export default App;
+
+
+
+
+
+
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(name);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input onChange={(e) => setName(e.target.value)} />
+      <button>Submit</button>
+    </form>
+  );
+}
 
 
 //IMP CODES FROM ANSHIKA 
